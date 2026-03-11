@@ -16,15 +16,6 @@ const containerVariants = {
   },
 };
 
-const burnVariants = {
-  rest: { scale: 1, x: 0 },
-  hover: {
-    scale: 1.02,
-    x: [0, -1.6, 1.6, -1, 0],
-    transition: { duration: 0.32, ease: EASE_IN_OUT },
-  },
-};
-
 const tooltipVariants = {
   rest: { opacity: 0, y: 8, scale: 0.96 },
   hover: {
@@ -32,6 +23,33 @@ const tooltipVariants = {
     y: 0,
     scale: 1,
     transition: { duration: 0.18, ease: EASE_OUT },
+  },
+};
+
+const flameVariants = {
+  rest: {
+    x: [0, 0.8, -0.6, 0.5, 0, 1.4, 0],
+    y: [0, -1.6, 0.9, -1.1, 0],
+    rotate: [-6, 4, -2, 5, -6],
+    scale: [0.96, 1.03, 0.98, 1.04, 0.96],
+    transition: {
+      duration: 3.6,
+      ease: EASE_IN_OUT,
+      repeat: Infinity,
+      repeatType: 'loop' as const,
+    },
+  },
+  hover: {
+    x: [0, 1.6, -1.2, 1, 0, 2, 0],
+    y: [0, -2.2, 1.2, -1.5, 0],
+    rotate: [-10, 6, -4, 8, -10],
+    scale: [0.98, 1.07, 1, 1.08, 0.98],
+    transition: {
+      duration: 2.2,
+      ease: EASE_IN_OUT,
+      repeat: Infinity,
+      repeatType: 'loop' as const,
+    },
   },
 };
 
@@ -68,30 +86,14 @@ const TradingCapitalBurnRateModule = () => {
           className="relative h-7 overflow-visible rounded-[999px] border border-white/80 bg-white/70 shadow-[0_18px_40px_rgba(15,23,42,0.08),inset_0_1px_0_rgba(255,255,255,0.82)] backdrop-blur"
           variants={containerVariants}
         >
-          <motion.div
-            className="relative h-full rounded-l-[999px] overflow-visible"
-            variants={burnVariants}
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true, amount: 0.8 }}
-            transition={{ duration: 2.5, ease: EASE_OUT }}
+          <div
+            className="absolute left-0 top-0 h-full rounded-l-[999px]"
             style={{
               width: `${BURN_RATE}%`,
-              transformOrigin: 'left center',
+              background: 'linear-gradient(90deg, #6B21A8 0%, #8B5CF6 100%)',
             }}
           >
-            <div className="trading-burn-surface absolute inset-0 rounded-l-[999px]" />
-            <div className="trading-burn-divider absolute right-0 top-1/2 h-10 w-px -translate-y-1/2 bg-white/95" />
-            <div className="trading-burn-flame absolute right-[-14px] top-1/2 z-10 -translate-y-1/2">
-              <Flame className="size-5 fill-current text-[#F97316]" />
-            </div>
-            <motion.div
-              className="absolute left-1/2 top-[-46px] z-10 -translate-x-1/2 whitespace-nowrap rounded-full bg-slate-950 px-3 py-1.5 text-xs font-medium text-white shadow-[0_12px_30px_rgba(15,23,42,0.3)]"
-              variants={tooltipVariants}
-            >
-              50.26%
-            </motion.div>
-          </motion.div>
+          </div>
 
           <div
             className="absolute right-0 top-0 h-full rounded-r-[999px]"
@@ -100,6 +102,40 @@ const TradingCapitalBurnRateModule = () => {
               background: 'linear-gradient(90deg, #10B981 0%, #34D399 100%)',
             }}
           />
+
+          <div
+            className="absolute top-1/2 z-10 h-10 w-px -translate-y-1/2 bg-white/95"
+            style={{ left: `${BURN_RATE}%` }}
+          />
+
+          <div
+            className="absolute top-1/2 z-20 -translate-x-1/2 -translate-y-1/2"
+            style={{ left: `${BURN_RATE}%` }}
+          >
+            <motion.div
+              className="trading-burn-flame relative"
+              initial={{ opacity: 0, scale: 0.86 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.8 }}
+              transition={{ duration: 0.5, ease: EASE_OUT }}
+              variants={flameVariants}
+            >
+              <div className="trading-burn-flame-glow absolute left-1/2 top-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full" />
+              <Flame className="relative z-10 size-[18px] fill-current text-[#F97316] sm:size-[20px]" />
+            </motion.div>
+          </div>
+
+          <div
+            className="absolute top-[-46px] z-20 -translate-x-1/2"
+            style={{ left: `${BURN_RATE}%` }}
+          >
+            <motion.div
+              className="whitespace-nowrap rounded-full bg-slate-950 px-3 py-1.5 text-xs font-medium text-white shadow-[0_12px_30px_rgba(15,23,42,0.3)]"
+              variants={tooltipVariants}
+            >
+              50.26%
+            </motion.div>
+          </div>
         </motion.div>
       </motion.div>
 

@@ -21,12 +21,36 @@ const performanceCards = [
     label: '千万级规模',
     tone: 'text-emerald-600',
   },
+];
+
+const annualBattleStats = [
   {
-    title: '单日极致表现',
-    value: '+29%',
-    label: '2026/03/07 单日示例',
+    label: '年内总回报',
+    value: '+37.47%',
+    note: '2026 年至今',
+    tone: 'text-emerald-600',
+    panel: 'border-emerald-100 bg-emerald-50/70',
+  },
+  {
+    label: '单日极致',
+    value: '+29.64%',
+    note: '2026/03/07 单日示例',
     tone: 'text-red-600',
-    emphasis: true,
+    panel: 'border-red-100 bg-red-50/70',
+  },
+  {
+    label: '年内夏普',
+    value: '2.37',
+    note: '期间峰值表现',
+    tone: 'text-sky-600',
+    panel: 'border-sky-100 bg-sky-50/70',
+  },
+  {
+    label: '最大回撤',
+    value: '-7.03%',
+    note: '控制优秀（Worst Return）',
+    tone: 'text-amber-600',
+    panel: 'border-amber-100 bg-amber-50/70',
   },
 ];
 
@@ -83,11 +107,7 @@ const Gallery = () => {
           {performanceCards.map((card, index) => (
             <motion.article
               key={card.title}
-              className={`glass-panel rounded-[32px] p-8 ${
-                card.emphasis
-                  ? 'border-red-200 bg-[linear-gradient(135deg,rgba(254,242,242,0.9),rgba(255,255,255,0.96))]'
-                  : ''
-              }`}
+              className="glass-panel rounded-[32px] p-8"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
@@ -95,10 +115,10 @@ const Gallery = () => {
               whileHover={{ y: -6 }}
             >
               <p className={`text-sm font-semibold ${card.tone}`}>{card.title}</p>
-              <div className={`mt-4 text-5xl font-semibold tracking-[-0.05em] ${card.emphasis ? 'text-red-600' : 'text-slate-950'}`}>
+              <div className="mt-4 text-5xl font-semibold tracking-[-0.05em] text-slate-950">
                 {card.value}
               </div>
-              <p className={`mt-2 text-sm ${card.emphasis ? 'text-red-500' : 'text-slate-500'}`}>
+              <p className="mt-2 text-sm text-slate-500">
                 {card.label}
               </p>
               {card.description ? (
@@ -106,6 +126,36 @@ const Gallery = () => {
               ) : null}
             </motion.article>
           ))}
+
+          <motion.article
+            className="glass-panel rounded-[32px] border-red-200 bg-[linear-gradient(135deg,rgba(254,242,242,0.94),rgba(255,255,255,0.98))] p-8"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.18 }}
+            whileHover={{ y: -6 }}
+          >
+            <p className="text-sm font-semibold text-red-600">2026 年战绩</p>
+            <div className="mt-6 grid grid-cols-2 gap-4">
+              {annualBattleStats.map((item) => (
+                <div
+                  key={item.label}
+                  className={`rounded-[24px] border p-4 ${item.panel}`}
+                >
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                    {item.label}
+                  </p>
+                  <p className={`mt-3 text-3xl font-semibold tracking-[-0.05em] ${item.tone}`}>
+                    {item.value}
+                  </p>
+                  <p className="mt-2 text-xs leading-6 text-slate-500">{item.note}</p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-6 text-xs leading-7 text-slate-500">
+              数据来源：Broker PortfolioAnalyst（2026.1.1–3.10）｜真实单人账户可查
+            </p>
+          </motion.article>
 
           <motion.article
             className="glass-panel rounded-[32px] p-8"

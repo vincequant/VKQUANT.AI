@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion';
 
+import TradingCapitalBurnRateModule from '@/components/TradingCapitalBurnRateModule';
+
 const performanceCards = [
   {
     title: '风险调整回报',
@@ -189,6 +191,7 @@ const Gallery = () => {
             </p>
           </motion.article>
 
+          <TradingCapitalBurnRateModule />
         </div>
       </div>
     </section>

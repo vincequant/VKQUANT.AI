@@ -7,6 +7,13 @@ const projectRoot = path.dirname(fileURLToPath(import.meta.url));
 
 const nextConfig: NextConfig = {
   outputFileTracingRoot: projectRoot,
+  images: {
+    localPatterns: [
+      {
+        pathname: '/images/ai-reports/**',
+      },
+    ],
+  },
   turbopack: {
     root: projectRoot,
   },

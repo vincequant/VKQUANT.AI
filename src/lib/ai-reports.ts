@@ -83,6 +83,8 @@ export const getAIReports = (): AIReport[] => {
         return [];
       }
 
+      const assetStats = fs.statSync(path.join(REPORT_DIRECTORY, entry.name));
+      const assetVersion = Math.floor(assetStats.mtimeMs).toString(36);
       const type = PDF_EXTENSIONS.has(extension) ? 'pdf' : 'image';
       const customContent = CUSTOM_REPORT_CONTENT[entry.name];
       const title = customContent?.title ?? formatTitle(entry.name);
@@ -90,7 +92,7 @@ export const getAIReports = (): AIReport[] => {
       const report: AIReport = {
         id: entry.name,
         filename: entry.name,
-        src: `/images/ai-reports/${encodeURIComponent(entry.name)}`,
+        src: `/images/ai-reports/${encodeURIComponent(entry.name)}?v=${assetVersion}`,
         title,
         caption: dateLabel ?? (type === 'pdf' ? 'AI 深度 PDF 报告' : 'AI 对投资体系的截图评测'),
         summary:

@@ -1,0 +1,10 @@
+# WeChat QR Code Placeholder
+
+IMPORTANT: Replace this file with your actual WeChat group QR code image.
+
+1. Name your WeChat QR code image as: wechat-qr.png
+2. Place it in the public/ directory (same level as this file)
+3. The frontend will automatically display the new image
+
+Recommended format: PNG with transparent background
+Recommended size: 400x400px

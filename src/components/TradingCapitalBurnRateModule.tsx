@@ -139,10 +139,7 @@ const TradingCapitalBurnRateModule = () => {
         </motion.div>
       </motion.div>
 
-      <p className="mx-auto mt-8 max-w-3xl text-center text-sm leading-7 text-slate-500 sm:text-base">
-        尽管交易摩擦成本吃掉一半执行本金，仍实现 542.36% 累计回报
-      </p>
-      <p className="mx-auto mt-2 max-w-3xl text-center text-xs leading-6 text-slate-400 sm:text-sm">
+      <p className="mx-auto mt-8 max-w-3xl text-center text-xs leading-6 text-slate-400 sm:text-sm">
         <span className="font-medium text-[#8B5CF6]">
           交易本金燃烧率 = 总交易摩擦成本 ÷（起始NAV + 净流入资金）
         </span>

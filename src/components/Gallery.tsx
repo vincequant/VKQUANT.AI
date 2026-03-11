@@ -78,7 +78,7 @@ const Gallery = () => {
             LIVE · 纯手工高频 · 真实执行力
           </div>
           <h2 className="mt-6 font-display text-4xl font-semibold tracking-[-0.05em] text-slate-950 sm:text-5xl">
-            VKQuant手工超频交易实验室
+            VKQUANT超频交易实验室
           </h2>
           <p className="mt-4 text-base leading-8 text-slate-600 sm:text-xl">
             2022.12 至今 · 单人账户 · 每天 80-100 笔纯手工决策

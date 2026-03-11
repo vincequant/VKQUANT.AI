@@ -5,13 +5,13 @@ import { motion } from 'framer-motion';
 const performanceCards = [
   {
     title: '风险调整回报',
-    value: '1.11',
+    value: '1.13',
     label: 'Sharpe Ratio（3年3个月长期）',
     tone: 'text-sky-600',
     description: (
       <>
         早期峰值达 <span className="font-medium text-emerald-600">2.52</span>（2025全年），长期稳定在
-        1.11。
+        1.13。
       </>
     ),
   },
@@ -94,7 +94,7 @@ const Gallery = () => {
             Cumulative Return
           </p>
           <div className="mt-4 text-6xl font-semibold tracking-[-0.07em] text-red-600 sm:text-7xl">
-            514.96%
+            542.36%
           </div>
           <p className="mt-3 text-2xl font-medium text-slate-800 sm:text-3xl">
             累计回报（3 年 3 个月）
@@ -154,7 +154,7 @@ const Gallery = () => {
               ))}
             </div>
             <p className="mt-6 text-xs leading-7 text-slate-500">
-              数据来源：Broker PortfolioAnalyst（2026.1.1–3.10）｜真实单人账户可查
+              数据来源：Broker PortfolioAnalyst（2022.12.05–2026.03.10）｜真实单人账户可查
             </p>
           </motion.article>
 

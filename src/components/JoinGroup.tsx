@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { Shield } from 'lucide-react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
@@ -67,6 +68,33 @@ const JoinGroup = () => {
   return (
     <section className="relative px-4 pb-24 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-5xl">
+        <motion.div
+          className="glass-panel mb-6 rounded-[28px] border border-slate-200/80 px-5 py-4 sm:px-6"
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.45 }}
+        >
+          <div className="flex items-start gap-4">
+            <div className="inline-flex rounded-2xl border border-slate-200 bg-white/80 p-3 text-slate-700">
+              <Shield className="size-5" />
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">
+                纯个人实验室声明
+              </p>
+              <p className="mt-2 text-sm leading-7 text-slate-600 sm:text-[15px]">
+                VKQuant 所有内容均为本人单人账户真实记录。
+                <span className="font-semibold text-slate-900">
+                  {' '}
+                  不接受任何形式私募、不管理外部资金、不提供跟单或复制交易服务。
+                </span>{' '}
+                仅分享执行力与体系，欢迎真诚交流与建议。
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
         <motion.div
           className="glass-panel relative overflow-hidden rounded-[36px] p-8 md:p-10"
           initial={{ opacity: 0, y: 24 }}

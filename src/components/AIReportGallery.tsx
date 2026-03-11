@@ -58,7 +58,7 @@ const ReportCard = ({ report, onOpen }: ReportCardProps) => {
         onClick={() => onOpen(report)}
         onPointerMove={handlePointerMove}
         onPointerLeave={resetTransform}
-        className="group relative h-[500px] w-[340px] min-w-[340px] overflow-hidden rounded-[32px] border border-slate-200/80 bg-white text-left shadow-[0_24px_60px_rgba(15,23,42,0.08)] transition-[transform,box-shadow] duration-300 ease-out sm:h-[520px] sm:w-[390px] sm:min-w-[390px]"
+        className="group relative h-[500px] w-[340px] min-w-[340px] overflow-hidden rounded-[32px] border border-slate-200/80 bg-white text-left shadow-[0_24px_60px_rgba(15,23,42,0.08)] ring-0 transition-[transform,box-shadow,border-color,background-color,ring] duration-300 ease-out hover:border-violet-400/90 hover:bg-violet-50/20 hover:shadow-[0_28px_72px_rgba(139,92,246,0.24)] hover:ring-2 hover:ring-violet-400/70 sm:h-[520px] sm:w-[390px] sm:min-w-[390px]"
         style={
           {
             '--glare-x': '50%',
@@ -77,17 +77,17 @@ const ReportCard = ({ report, onOpen }: ReportCardProps) => {
 
         <div className="relative flex h-full flex-col p-4">
           <div className="flex items-center justify-between">
-            <span className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white/85 px-3 py-1 text-xs font-medium text-sky-700 backdrop-blur">
+            <span className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white/85 px-3 py-1 text-xs font-medium text-sky-700 backdrop-blur transition-colors duration-300 group-hover:border-violet-200 group-hover:text-violet-700">
               <Sparkles className="size-3.5" />
               {report.badge}
             </span>
-            <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/85 px-3 py-1 text-xs text-slate-500 backdrop-blur">
+            <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/85 px-3 py-1 text-xs text-slate-500 backdrop-blur transition-colors duration-300 group-hover:border-violet-200 group-hover:text-violet-700">
               <Expand className="size-3.5" />
               点击放大
             </span>
           </div>
 
-          <div className="relative mt-4 flex-1 overflow-hidden rounded-[24px] border border-slate-200/80 bg-slate-50">
+          <div className="relative mt-4 flex-1 overflow-hidden rounded-[24px] border border-slate-200/80 bg-slate-50 transition-colors duration-300 group-hover:border-violet-200/80 group-hover:bg-violet-50/30">
             {report.type === 'image' ? (
               <Image
                 src={report.src}
@@ -101,7 +101,7 @@ const ReportCard = ({ report, onOpen }: ReportCardProps) => {
                 <div className="absolute -right-10 top-6 h-32 w-32 rounded-full bg-sky-200/40 blur-3xl" />
                 <div className="absolute -left-10 bottom-8 h-28 w-28 rounded-full bg-emerald-200/40 blur-3xl" />
                 <div>
-                  <div className="inline-flex rounded-2xl border border-sky-200 bg-white/80 p-4 text-sky-600">
+                  <div className="inline-flex rounded-2xl border border-sky-200 bg-white/80 p-4 text-sky-600 transition-colors duration-300 group-hover:border-violet-200 group-hover:text-violet-700">
                     <FileText className="size-7" />
                   </div>
                   <p className="mt-6 text-xs font-medium uppercase tracking-[0.32em] text-slate-500">
@@ -196,14 +196,14 @@ const AIReportGallery = ({ reports }: AIReportGalleryProps) => {
       <section className="relative px-4 py-24 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.36em] text-sky-600">
-              AI System Analysis
+            <p className="text-sm font-semibold uppercase tracking-[0.36em] text-violet-600">
+              GROK SYSTEM ANALYSIS
             </p>
             <h2 className="mt-5 text-4xl font-semibold tracking-[-0.04em] text-slate-950 sm:text-5xl">
-              AI 对 VK 投资体系的深度解剖
+              <span className="text-violet-600">Grok</span> 对 VK 投资体系的深度解剖
             </h2>
             <p className="mt-4 text-base leading-8 text-slate-600 sm:text-lg">
-              实时记录 AI 对投资体系与研究方法的深度评价。
+              实时记录 <span className="font-semibold text-violet-600">Grok 4.2 (4 Agent)</span> 对投资体系与研究方法的深度评价。
               <br className="hidden sm:block" />
               横向翻阅、3D 倾斜预览、点击全屏放大阅读。
             </p>

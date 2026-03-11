@@ -12,6 +12,27 @@ const nextConfig: NextConfig = {
       {
         pathname: '/images/ai-reports/**',
       },
+      {
+        pathname: '/wechat-qr.png',
+      },
+      {
+        pathname: '/wechat-qr.jpg',
+      },
+      {
+        pathname: '/wechat-qr.jpeg',
+      },
+      {
+        pathname: '/wechat-qr.JPG',
+      },
+      {
+        pathname: '/wechat-qr.JPEG',
+      },
+      {
+        pathname: '/wechat-qr.webp',
+      },
+      {
+        pathname: '/wechat-qr.WEBP',
+      },
     ],
   },
   turbopack: {

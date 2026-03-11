@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { Flame } from 'lucide-react';
 
 const BURN_RATE = 50.26;
 const REMAINING_RATE = 49.74;
@@ -53,7 +54,7 @@ const TradingCapitalBurnRateModule = () => {
       </div>
 
       <motion.div
-        className="mx-auto mt-10 w-full max-w-[1080px] md:w-[85%]"
+        className="trading-burn-track mx-auto mt-10 w-full max-w-[1080px] md:w-[85%]"
         initial="rest"
         animate="rest"
         whileHover="hover"
@@ -68,15 +69,22 @@ const TradingCapitalBurnRateModule = () => {
           variants={containerVariants}
         >
           <motion.div
-            className="relative h-full rounded-l-[999px]"
+            className="relative h-full rounded-l-[999px] overflow-visible"
             variants={burnVariants}
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true, amount: 0.8 }}
+            transition={{ duration: 2.5, ease: EASE_OUT }}
             style={{
               width: `${BURN_RATE}%`,
               transformOrigin: 'left center',
-              background: 'linear-gradient(90deg, #8B5CF6 0%, #EC4899 100%)',
-              boxShadow: '0 0 4px rgba(139,92,246,0.3)',
             }}
           >
+            <div className="trading-burn-surface absolute inset-0 rounded-l-[999px]" />
+            <div className="trading-burn-divider absolute right-0 top-1/2 h-10 w-px -translate-y-1/2 bg-white/95" />
+            <div className="trading-burn-flame absolute right-[-14px] top-1/2 z-10 -translate-y-1/2">
+              <Flame className="size-5 fill-current text-[#F97316]" />
+            </div>
             <motion.div
               className="absolute left-1/2 top-[-46px] z-10 -translate-x-1/2 whitespace-nowrap rounded-full bg-slate-950 px-3 py-1.5 text-xs font-medium text-white shadow-[0_12px_30px_rgba(15,23,42,0.3)]"
               variants={tooltipVariants}
@@ -91,11 +99,6 @@ const TradingCapitalBurnRateModule = () => {
               width: `${REMAINING_RATE}%`,
               background: 'linear-gradient(90deg, #10B981 0%, #34D399 100%)',
             }}
-          />
-
-          <div
-            className="absolute top-0 h-full w-px bg-white/95"
-            style={{ left: `${BURN_RATE}%` }}
           />
         </motion.div>
       </motion.div>

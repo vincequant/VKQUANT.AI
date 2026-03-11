@@ -135,6 +135,78 @@ button {
   display: none;
 }
 
+@keyframes trading-burn-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes trading-burn-pulse {
+  0%,
+  100% {
+    transform: scaleY(0.98);
+    opacity: 0.92;
+  }
+
+  50% {
+    transform: scaleY(1.02);
+    opacity: 1;
+  }
+}
+
+@keyframes trading-burn-flame-jitter {
+  0%,
+  100% {
+    transform: translateY(-50%) rotate(-6deg) scale(0.96);
+  }
+
+  50% {
+    transform: translateY(-50%) rotate(4deg) scale(1.06);
+  }
+}
+
+.trading-burn-track {
+  --burn-flow-duration: 3.6s;
+  --burn-pulse-duration: 2.1s;
+  --burn-shadow: 0 0 6px rgba(139, 92, 246, 0.3);
+}
+
+.trading-burn-track:hover {
+  --burn-flow-duration: 1.35s;
+  --burn-pulse-duration: 1s;
+  --burn-shadow: 0 0 14px rgba(139, 92, 246, 0.42);
+}
+
+.trading-burn-surface {
+  background:
+    linear-gradient(
+      90deg,
+      #6b21a8 0%,
+      #8b5cf6 22%,
+      #c026d3 52%,
+      #f97316 76%,
+      #ef4444 100%
+    );
+  background-size: 220% 100%;
+  box-shadow: var(--burn-shadow);
+  animation:
+    trading-burn-flow var(--burn-flow-duration) linear infinite,
+    trading-burn-pulse var(--burn-pulse-duration) ease-in-out infinite;
+}
+
+.trading-burn-flame {
+  filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.28));
+  animation: trading-burn-flame-jitter 1.1s ease-in-out infinite;
+}
+
+.trading-burn-track:hover .trading-burn-flame {
+  filter: drop-shadow(0 0 12px rgba(139, 92, 246, 0.4));
+}
+
 img[src*="vkquant-ai-main"],
 img[alt*="VKQuant.AI"] {
   background: transparent !important;

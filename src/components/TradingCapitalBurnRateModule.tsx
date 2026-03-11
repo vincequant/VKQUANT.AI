@@ -73,7 +73,7 @@ const TradingCapitalBurnRateModule = () => {
             style={{
               width: `${BURN_RATE}%`,
               transformOrigin: 'left center',
-              background: 'linear-gradient(90deg, #FF3B5C 0%, #FF8A65 100%)',
+              background: 'linear-gradient(90deg, #8B5CF6 0%, #EC4899 100%)',
               boxShadow: '0 0 4px rgba(139,92,246,0.3)',
             }}
           >
@@ -81,7 +81,7 @@ const TradingCapitalBurnRateModule = () => {
               className="absolute left-1/2 top-[-46px] z-10 -translate-x-1/2 whitespace-nowrap rounded-full bg-slate-950 px-3 py-1.5 text-xs font-medium text-white shadow-[0_12px_30px_rgba(15,23,42,0.3)]"
               variants={tooltipVariants}
             >
-              50.26%（燃烧区）
+              50.26%
             </motion.div>
           </motion.div>
 
@@ -89,7 +89,7 @@ const TradingCapitalBurnRateModule = () => {
             className="absolute right-0 top-0 h-full rounded-r-[999px]"
             style={{
               width: `${REMAINING_RATE}%`,
-              background: 'linear-gradient(90deg, #00E676 0%, #00BFA5 100%)',
+              background: 'linear-gradient(90deg, #10B981 0%, #34D399 100%)',
             }}
           />
 
@@ -102,6 +102,11 @@ const TradingCapitalBurnRateModule = () => {
 
       <p className="mx-auto mt-8 max-w-3xl text-center text-sm leading-7 text-slate-500 sm:text-base">
         尽管交易摩擦成本吃掉一半执行本金，仍实现 542.36% 累计回报
+      </p>
+      <p className="mx-auto mt-2 max-w-3xl text-center text-xs leading-6 text-slate-400 sm:text-sm">
+        <span className="font-medium text-[#8B5CF6]">
+          交易本金燃烧率 = 总交易摩擦成本 ÷（起始NAV + 净流入资金）
+        </span>
       </p>
       <p className="mt-3 text-center text-xs leading-6 text-slate-400">
         真实单人账户 · Broker PortfolioAnalyst（2022.12.05–2026.03.10）可查

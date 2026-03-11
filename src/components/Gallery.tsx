@@ -16,31 +16,22 @@ const performanceCards = [
     ),
   },
   {
-    title: '最大回撤控制',
-    value: '47.69%',
-    label: '历史最大回撤',
-    tone: 'text-rose-600',
-    description: (
-      <>
-        在 514.96% 累计回报下，回撤控制在可接受范围。
-        <br />
-        <span className="font-medium text-emerald-600">风险收益比极优</span>
-      </>
-    ),
+    title: '飞书策略机器人',
+    value: '已上线',
+    label: 'TradingView → 飞书实时推送',
+    tone: 'text-sky-600',
   },
   {
     title: '当前账户规模',
     value: 'A8级',
     label: '千万级规模',
     tone: 'text-emerald-600',
-    description: '从 HK$229k 起步，真实复合增长至千万级区间，同时保留必要的账户规模隐私。',
   },
   {
     title: '单日极致表现',
     value: '+29%',
     label: '2026/03/07 单日示例',
     tone: 'text-red-600',
-    description: '在市场震荡背景下实现单日 +29%，核心展示的是肉身高频执行在极端时刻的效率。',
     emphasis: true,
   },
 ];
@@ -90,7 +81,7 @@ const Gallery = () => {
             累计回报（3 年 3 个月）
           </p>
           <p className="mt-2 text-base text-red-500">
-            从 HK$229k → A8级（千万级规模）
+            A6级 → A8级
           </p>
         </motion.div>
 
@@ -116,7 +107,9 @@ const Gallery = () => {
               <p className={`mt-2 text-sm ${card.emphasis ? 'text-red-500' : 'text-slate-500'}`}>
                 {card.label}
               </p>
-              <p className="mt-6 text-sm leading-8 text-slate-600">{card.description}</p>
+              {card.description ? (
+                <p className="mt-6 text-sm leading-8 text-slate-600">{card.description}</p>
+              ) : null}
             </motion.article>
           ))}
 

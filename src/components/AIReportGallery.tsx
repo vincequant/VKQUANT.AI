@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Download, Expand, FileText, Minus, Plus, RotateCcw, Sparkles, X } from 'lucide-react';
+import { Download, Expand, FileText, Sparkles, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import type { CSSProperties, PointerEvent as ReactPointerEvent } from 'react';
 
@@ -250,7 +250,7 @@ const AIReportGallery = ({ reports }: AIReportGalleryProps) => {
         </div>
       </section>
 
-          {activeReport ? (
+      {activeReport ? (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 p-4 backdrop-blur-md"
           onClick={closeReport}
@@ -258,112 +258,85 @@ const AIReportGallery = ({ reports }: AIReportGalleryProps) => {
           aria-modal="true"
           aria-label={activeReport.title}
         >
-          <div
-            className="relative max-h-[92vh] w-full max-w-6xl overflow-hidden rounded-[32px] bg-white shadow-[0_30px_120px_rgba(15,23,42,0.28)]"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4 sm:px-6">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.32em] text-sky-600">
-                  {activeReport.caption}
-                </p>
-                <h3 className="mt-2 text-xl font-semibold text-slate-950 sm:text-2xl">
-                  {activeReport.title}
-                </h3>
-                {activeReport.subtitle ? (
-                  <p className="mt-2 max-w-3xl text-sm leading-7 text-slate-600">
-                    {activeReport.subtitle}
+          {activeReport.type === 'pdf' ? (
+            <div
+              className="relative max-h-[92vh] w-full max-w-6xl overflow-hidden rounded-[32px] bg-white shadow-[0_30px_120px_rgba(15,23,42,0.28)]"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4 sm:px-6">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.32em] text-sky-600">
+                    {activeReport.caption}
                   </p>
-                ) : null}
+                  <h3 className="mt-2 text-xl font-semibold text-slate-950 sm:text-2xl">
+                    {activeReport.title}
+                  </h3>
+                  {activeReport.subtitle ? (
+                    <p className="mt-2 max-w-3xl text-sm leading-7 text-slate-600">
+                      {activeReport.subtitle}
+                    </p>
+                  ) : null}
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <a
+                    href={activeReport.src}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-600 transition hover:border-sky-200 hover:text-sky-700"
+                  >
+                    <Download className="size-4" />
+                    新标签打开
+                  </a>
+                  <button
+                    type="button"
+                    onClick={closeReport}
+                    className="inline-flex items-center justify-center rounded-full border border-slate-200 p-2 text-slate-500 transition hover:border-sky-200 hover:text-sky-700"
+                    aria-label="关闭报告阅读器"
+                  >
+                    <X className="size-4" />
+                  </button>
+                </div>
               </div>
 
-              <div className="flex items-center gap-2">
-                {activeReport.type === 'image' ? (
-                  <div className="hidden items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-2 py-1 sm:flex">
-                    <button
-                      type="button"
-                      onClick={() => setImageZoom((current) => Math.max(0.8, current - 0.2))}
-                      className="inline-flex items-center justify-center rounded-full p-2 text-slate-500 transition hover:bg-white hover:text-sky-700"
-                      aria-label="缩小图片"
-                    >
-                      <Minus className="size-4" />
-                    </button>
-                    <span className="min-w-14 text-center text-sm font-medium text-slate-600">
-                      {Math.round(imageZoom * 100)}%
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() => setImageZoom((current) => Math.min(2.6, current + 0.2))}
-                      className="inline-flex items-center justify-center rounded-full p-2 text-slate-500 transition hover:bg-white hover:text-sky-700"
-                      aria-label="放大图片"
-                    >
-                      <Plus className="size-4" />
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setImageZoom(1)}
-                      className="inline-flex items-center justify-center rounded-full p-2 text-slate-500 transition hover:bg-white hover:text-sky-700"
-                      aria-label="重置缩放"
-                    >
-                      <RotateCcw className="size-4" />
-                    </button>
-                  </div>
-                ) : null}
-                <a
-                  href={activeReport.src}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-600 transition hover:border-sky-200 hover:text-sky-700"
-                >
-                  <Download className="size-4" />
-                  新标签打开
-                </a>
-                    <button
-                      type="button"
-                      onClick={closeReport}
-                      className="inline-flex items-center justify-center rounded-full border border-slate-200 p-2 text-slate-500 transition hover:border-sky-200 hover:text-sky-700"
-                      aria-label="关闭报告阅读器"
-                >
-                  <X className="size-4" />
-                </button>
-              </div>
-            </div>
-
-            <div className="max-h-[calc(92vh-96px)] overflow-auto bg-[linear-gradient(180deg,#f8fafc_0%,#eef6ff_100%)] p-4 sm:p-6">
-              {activeReport.type === 'pdf' ? (
+              <div className="max-h-[calc(92vh-96px)] overflow-auto bg-[linear-gradient(180deg,#f8fafc_0%,#eef6ff_100%)] p-4 sm:p-6">
                 <iframe
                   src={activeReport.src}
                   title={activeReport.title}
                   className="h-[78vh] w-full rounded-[24px] border border-slate-200 bg-white"
                 />
-              ) : (
-                <div className="rounded-[24px] border border-slate-200 bg-white p-3">
-                  <div className="mb-3 flex items-center justify-between gap-3 rounded-[18px] bg-slate-50 px-4 py-3 text-sm text-slate-500">
-                    <span>已切换为大图阅读模式，长图可直接滚动查看。</span>
-                    <span className="hidden sm:inline">双击图片可在 100% / 180% 之间切换。</span>
-                  </div>
-
-                  <div className="max-h-[74vh] overflow-auto rounded-[18px] border border-slate-200 bg-slate-50 p-3">
-                    <div
-                      className="mx-auto transition-[width] duration-200 ease-out"
-                      style={{ width: `${currentImageWidth}px` }}
-                    >
-                      <Image
-                        src={activeReport.src}
-                        alt={activeReport.title}
-                        width={1600}
-                        height={2200}
-                        onDoubleClick={() =>
-                          setImageZoom((current) => (current <= 1.05 ? 1.8 : 1))
-                        }
-                        className="h-auto w-full rounded-[18px] object-contain"
-                      />
-                    </div>
-                  </div>
-                </div>
-              )}
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className="relative flex h-full w-full items-center justify-center" onClick={(event) => event.stopPropagation()}>
+              <button
+                type="button"
+                onClick={closeReport}
+                className="absolute right-2 top-2 z-20 inline-flex items-center justify-center rounded-full bg-white/10 p-3 text-white backdrop-blur transition hover:bg-white/20 sm:right-6 sm:top-6"
+                aria-label="关闭图片查看器"
+              >
+                <X className="size-5" />
+              </button>
+              <div className="max-h-[92vh] max-w-[92vw] overflow-auto [touch-action:pinch-zoom]">
+                <div
+                  className="mx-auto transition-[width] duration-200 ease-out"
+                  style={{ width: `${currentImageWidth}px` }}
+                >
+                  <Image
+                    src={activeReport.src}
+                    alt={activeReport.title}
+                    width={1600}
+                    height={2200}
+                    onDoubleClick={() =>
+                      setImageZoom((current) => (current <= 1.05 ? 1.8 : 1))
+                    }
+                    className="h-auto w-full object-contain shadow-[0_24px_80px_rgba(0,0,0,0.36)]"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       ) : null}
     </>

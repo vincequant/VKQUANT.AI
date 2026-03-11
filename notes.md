@@ -29,6 +29,11 @@
 - `package.json` and `next.config.ts` were adjusted so local `dev/build` runs use webpack and the project root is explicit.
 - `src/components/Gallery.tsx` was later refactored again from generic strategy cards into a single-account live performance center based on the provided Interactive Brokers PortfolioAnalyst metrics and milestone timeline.
 - `src/components/JoinGroup.tsx` now auto-detects QR assets from `public/wechat-qr.png`, `.jpg`, `.jpeg`, `.JPG`, `.JPEG`, or `.webp`, so temporary uploads do not require code edits.
+- `src/components/HomePageClient.tsx`, `src/components/AIReportGallery.tsx`, and `src/components/JoinGroup.tsx` were refined for mobile:
+  - top hero header now stacks more cleanly on small screens
+  - neural network panel width and spacing are constrained on mobile
+  - AI report cards use tighter swipe spacing and lighter text density on small screens
+  - the QR card is larger and more centered on mobile
 
 ## Deployment Research (2026-03-11)
 

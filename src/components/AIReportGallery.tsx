@@ -58,7 +58,7 @@ const ReportCard = ({ report, onOpen }: ReportCardProps) => {
         onClick={() => onOpen(report)}
         onPointerMove={handlePointerMove}
         onPointerLeave={resetTransform}
-        className="group relative h-[520px] min-w-[350px] overflow-hidden rounded-[32px] border border-slate-200/80 bg-white text-left shadow-[0_24px_60px_rgba(15,23,42,0.08)] transition-[transform,box-shadow] duration-300 ease-out sm:min-w-[390px]"
+        className="group relative h-[500px] w-[340px] min-w-[340px] overflow-hidden rounded-[32px] border border-slate-200/80 bg-white text-left shadow-[0_24px_60px_rgba(15,23,42,0.08)] transition-[transform,box-shadow] duration-300 ease-out sm:h-[520px] sm:w-[390px] sm:min-w-[390px]"
         style={
           {
             '--glare-x': '50%',
@@ -93,7 +93,7 @@ const ReportCard = ({ report, onOpen }: ReportCardProps) => {
                 src={report.src}
                 alt={report.title}
                 fill
-                sizes="(max-width: 768px) 80vw, 390px"
+                sizes="(max-width: 768px) 86vw, 390px"
                 className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.035]"
               />
             ) : (
@@ -126,10 +126,12 @@ const ReportCard = ({ report, onOpen }: ReportCardProps) => {
             <p className="text-xs font-medium uppercase tracking-[0.32em] text-sky-700/80">
               {report.caption}
             </p>
-            <h3 className="mt-2 text-xl font-semibold leading-8 tracking-tight text-slate-900 sm:text-2xl">
+            <h3 className="mt-2 line-clamp-2 text-xl font-semibold leading-8 tracking-tight text-slate-900 sm:line-clamp-none sm:text-2xl">
               {report.title}
             </h3>
-            <p className="mt-2 text-sm leading-7 text-slate-600">{supportingText}</p>
+            <p className="mt-2 line-clamp-3 text-sm leading-7 text-slate-600 sm:line-clamp-none">
+              {supportingText}
+            </p>
           </div>
         </div>
       </button>
@@ -209,11 +211,11 @@ const AIReportGallery = ({ reports }: AIReportGalleryProps) => {
 
           {reports.length > 0 ? (
             <>
-              <div className="relative mt-14">
-                <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-14 bg-gradient-to-r from-[#f8fafc] to-transparent" />
-                <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-14 bg-gradient-to-l from-[#f8fafc] to-transparent" />
+              <div className="relative mt-12 sm:mt-14">
+                <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-[#f8fafc] to-transparent sm:w-14" />
+                <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-[#f8fafc] to-transparent sm:w-14" />
 
-                <div className="scrollbar-hide flex gap-8 overflow-x-auto pb-10 pt-2 [scroll-snap-type:x_mandatory]">
+                <div className="scrollbar-hide -mx-2 flex gap-6 overflow-x-auto px-2 pb-8 pt-2 snap-x snap-mandatory sm:gap-8 sm:pb-10">
                   {reports.map((report) => (
                     <ReportCard
                       key={report.id}

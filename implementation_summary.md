@@ -12,6 +12,11 @@
   - The image area scrolls vertically for long content.
   - Desktop controls support zoom in, zoom out, and reset.
   - Double-click toggles between base zoom and a larger reading zoom.
+- Added mobile-focused responsive refinements without changing the desktop structure:
+  - hero header stacks more cleanly on small screens
+  - neural network panel gets a constrained mobile width
+  - AI report cards are easier to swipe and less text-dense on phones
+  - the community QR card is larger and more prominent on mobile
 - Replaced the old strategy matrix with a static live performance center:
   - Highlights 514.96% cumulative return, 1.11 Sharpe Ratio, 47.69% max drawdown, HK$17.86M NAV, recent 5-day return, and top contributors.
   - Added a clean milestone timeline from 2022.12.05 through 2026.03.09.

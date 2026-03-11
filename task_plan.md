@@ -1,7 +1,7 @@
 # Task Plan: Clean Light Fintech Refresh
 
 ## Goal
-Switch the landing page from dark fintech styling to a clean light fintech theme, add an AI report gallery with fullscreen reading, and keep a deployment-ready summary for follow-up decisions.
+Switch the landing page from dark fintech styling to a clean light fintech theme, add an AI report gallery with fullscreen reading, keep a deployment-ready summary for follow-up decisions, and tighten the mobile experience without changing the desktop visual language.
 
 ## Phases
 - [x] Phase 1: Plan and setup
@@ -20,9 +20,10 @@ Switch the landing page from dark fintech styling to a clean light fintech theme
 - Support both image files and PDF files in the gallery modal.
 - Support multiple QR image extensions in `public/` so temporary assets like `wechat-qr.JPG` work without renaming.
 - Keep deployment advice in a dedicated markdown brief so external reviewers such as Grok can evaluate hosting options from a single file.
+- Apply only light responsive refinements on mobile: preserve the desktop structure, but tighten hero spacing, make the AI report carousel easier to swipe, and enlarge the QR entry card on small screens.
 
 ## Errors Encountered
 - `next build` with default Turbopack was unreliable in this environment: switched project scripts to webpack for stable local verification.
 
 ## Status
-**Completed** - Light fintech theme, AI report gallery, modal viewer, QR asset fallback handling, and deployment brief are all verified.
+**Completed** - Light fintech theme, AI report gallery, modal viewer, QR asset fallback handling, deployment brief, and mobile refinements are all verified.

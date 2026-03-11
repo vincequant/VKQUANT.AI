@@ -77,7 +77,7 @@ const JoinGroup = () => {
           <div className="fintech-grid absolute inset-0 opacity-20 [mask-image:linear-gradient(135deg,black,transparent_82%)]" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(14,165,233,0.08),transparent_34%)]" />
 
-          <div className="relative grid gap-10 md:grid-cols-[1.1fr_0.9fr]">
+          <div className="relative grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:gap-12">
             <div className="space-y-8">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.36em] text-sky-600">
@@ -95,14 +95,14 @@ const JoinGroup = () => {
                 {communityHighlights.map((item) => (
                   <div
                     key={item.title}
-                    className="flex min-h-[220px] flex-col rounded-[24px] border border-slate-200/80 bg-white/80 p-6 backdrop-blur"
+                    className="flex min-h-[172px] flex-col rounded-[24px] border border-slate-200/80 bg-white/80 p-5 backdrop-blur sm:min-h-[220px] sm:p-6"
                   >
                     <div
                       className={`flex h-12 w-12 items-center justify-center rounded-2xl ${item.iconBg} text-2xl`}
                     >
                       <span aria-hidden="true">{item.emoji}</span>
                     </div>
-                    <h3 className="mt-8 text-xl font-semibold leading-8 text-slate-950">
+                    <h3 className="mt-6 text-lg font-semibold leading-8 text-slate-950 sm:mt-8 sm:text-xl">
                       {item.title}
                     </h3>
                   </div>
@@ -111,25 +111,25 @@ const JoinGroup = () => {
             </div>
 
             <motion.div
-              className="flex items-center justify-center"
+              className="flex items-center justify-center md:justify-end"
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.5, delay: 0.15 }}
             >
-              <div className="glass-panel relative w-full max-w-[320px] rounded-[32px] p-5">
+              <div className="glass-panel relative mt-2 w-full max-w-[360px] rounded-[32px] p-6 md:mt-0 md:max-w-[320px] md:p-5">
                 <div className="absolute inset-0 rounded-[32px] bg-[linear-gradient(180deg,rgba(255,255,255,0.78)_0%,rgba(255,255,255,0)_22%)]" />
-                <div className="relative rounded-[24px] border border-slate-200/80 bg-white/70 p-6">
+                <div className="relative rounded-[24px] border border-slate-200/80 bg-white/70 p-5 sm:p-6">
                   {qrSrc ? (
                     <Image
                       src={qrSrc}
                       alt="加入策略社群"
                       width={256}
                       height={256}
-                      className="h-64 w-full rounded-[18px] object-contain"
+                      className="mx-auto h-72 w-full max-w-[288px] rounded-[18px] object-contain sm:h-64 sm:max-w-none"
                     />
                   ) : (
-                    <div className="flex h-64 flex-col items-center justify-center rounded-[18px] border border-dashed border-slate-300 bg-slate-50 text-center">
+                    <div className="flex h-72 flex-col items-center justify-center rounded-[18px] border border-dashed border-slate-300 bg-slate-50 text-center sm:h-64">
                       <p className="text-sm font-semibold uppercase tracking-[0.32em] text-slate-500">
                         WeChat Access
                       </p>
@@ -139,7 +139,7 @@ const JoinGroup = () => {
                     </div>
                   )}
                 </div>
-                <p className="mt-4 text-center text-sm text-slate-500">
+                <p className="mt-5 text-center text-sm text-slate-500 md:mt-4">
                   扫一扫 · 进入 VKQuant.ai 策略社群
                 </p>
               </div>

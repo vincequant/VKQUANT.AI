@@ -18,7 +18,7 @@ const performanceCards = [
   {
     title: '飞书策略机器人',
     value: '已上线',
-    label: 'TradingView → 飞书实时推送',
+    label: '飞书量化策略机器人已上线',
     tone: 'text-sky-600',
   },
   {

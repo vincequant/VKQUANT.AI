@@ -18,6 +18,7 @@ const performanceCards = [
   {
     title: '当前账户规模',
     value: 'A8级',
+    sublabel: 'A6级 → A8级',
     label: '千万级规模',
     tone: 'text-emerald-600',
   },
@@ -34,7 +35,7 @@ const annualBattleStats = [
   {
     label: '单日极致',
     value: '+29.64%',
-    note: '2026/03/07 单日示例',
+    note: '2026/02/06 单日示例',
     tone: 'text-red-600',
     panel: 'border-red-100 bg-red-50/70',
   },
@@ -98,9 +99,6 @@ const Gallery = () => {
           <p className="mt-3 text-2xl font-medium text-slate-800 sm:text-3xl">
             累计回报（3 年 3 个月）
           </p>
-          <p className="mt-2 text-base text-red-500">
-            A6级 → A8级
-          </p>
         </motion.div>
 
         <div className="grid gap-6 md:grid-cols-2">
@@ -118,6 +116,9 @@ const Gallery = () => {
               <div className="mt-4 text-5xl font-semibold tracking-[-0.05em] text-slate-950">
                 {card.value}
               </div>
+              {'sublabel' in card ? (
+                <p className="mt-3 text-sm font-medium text-violet-600">{card.sublabel}</p>
+              ) : null}
               <p className="mt-2 text-sm text-slate-500">
                 {card.label}
               </p>

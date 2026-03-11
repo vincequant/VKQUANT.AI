@@ -16,12 +16,6 @@ const performanceCards = [
     ),
   },
   {
-    title: '飞书策略机器人',
-    value: '已上线',
-    label: '飞书量化策略机器人已上线',
-    tone: 'text-sky-600',
-  },
-  {
     title: '当前账户规模',
     value: 'A8级',
     label: '千万级规模',
@@ -85,7 +79,7 @@ const Gallery = () => {
           </p>
         </motion.div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2">
           {performanceCards.map((card, index) => (
             <motion.article
               key={card.title}

@@ -7,7 +7,9 @@ import { useEffect, useState } from 'react';
 const communityHighlights = [
   {
     emoji: '🤖',
-    title: 'TradingView → 飞书实时信号机器人',
+    title: '飞书策略机器人',
+    status: '已上线',
+    caption: '飞书量化策略机器人已上线',
     iconBg: 'bg-emerald-100',
   },
   {
@@ -105,6 +107,16 @@ const JoinGroup = () => {
                     <h3 className="mt-6 text-lg font-semibold leading-8 text-slate-950 sm:mt-8 sm:text-xl">
                       {item.title}
                     </h3>
+                    {'status' in item ? (
+                      <p className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-slate-950">
+                        {item.status}
+                      </p>
+                    ) : null}
+                    {'caption' in item ? (
+                      <p className="mt-2 text-sm font-medium leading-7 text-slate-500">
+                        {item.caption}
+                      </p>
+                    ) : null}
                   </div>
                 ))}
               </div>

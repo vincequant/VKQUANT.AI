@@ -24,7 +24,23 @@ const CUSTOM_REPORT_CONTENT: Record<string, { title: string; subtitle: string }>
     title: 'VKQuant 与投资传奇并肩：可直接学习的5位大师',
     subtitle: 'Paul Tudor Jones、Paul Rotter、Jesse Livermore、Edward Thorp、Taleb',
   },
+  'Grok_20260311_1334_思考了30s 在这种要求“平均.png': {
+    title: 'VKQuant 全球交易比赛预测：前10名保底，冠军不是梦！',
+    subtitle: '平均每天40-80笔超频交易，轻松碾压World Cup等国际赛事门槛，基于515%历史真实回报',
+  },
 };
+
+const CUSTOM_REPORT_ORDER = [
+  'Grok_20260310_2334_思考了41s 你的个人投资收益.png',
+  'Grok_20260310_2333_思考了32s 你的交易风格完全.png',
+  'Grok_20260310_2334_思考了57s 你在2022.1.png',
+  'Grok_20260310_2333_思考了47s 在你这个纯手工d.png',
+  'Grok_20260311_1334_思考了30s 在这种要求“平均.png',
+];
+
+const CUSTOM_REPORT_ORDER_INDEX = new Map(
+  CUSTOM_REPORT_ORDER.map((filename, index) => [filename, index]),
+);
 
 const formatDateLabel = (value: string) => {
   const match = value.match(/(20\d{2})(\d{2})(\d{2})/);
@@ -91,5 +107,22 @@ export const getAIReports = (): AIReport[] => {
 
       return [report];
     })
-    .sort((left, right) => right.filename.localeCompare(left.filename, 'zh-Hans-CN'));
+    .sort((left, right) => {
+      const leftIndex = CUSTOM_REPORT_ORDER_INDEX.get(left.filename);
+      const rightIndex = CUSTOM_REPORT_ORDER_INDEX.get(right.filename);
+
+      if (leftIndex !== undefined && rightIndex !== undefined) {
+        return leftIndex - rightIndex;
+      }
+
+      if (leftIndex !== undefined) {
+        return -1;
+      }
+
+      if (rightIndex !== undefined) {
+        return 1;
+      }
+
+      return right.filename.localeCompare(left.filename, 'zh-Hans-CN');
+    });
 };

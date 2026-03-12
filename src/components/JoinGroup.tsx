@@ -171,7 +171,7 @@ const JoinGroup = () => {
                   扫一扫 · 进入 VKQuant.ai 策略社群
                 </p>
                 <p className="mt-2 text-center text-xs text-slate-400 md:mt-3">
-                  群满后请刷新页面获取新群（自动切换，无需等待）
+                  （群满后会稍后更换新群二维码，请稍后刷新页面尝试）
                 </p>
               </div>
             </motion.div>

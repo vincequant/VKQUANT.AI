@@ -20,7 +20,6 @@ const performanceCards = [
   {
     title: '当前账户规模',
     value: 'A8级',
-    sublabel: 'A6级 → A8级',
     label: '千万级规模',
     tone: 'text-emerald-600',
   },
@@ -100,6 +99,9 @@ const Gallery = () => {
           </div>
           <p className="mt-3 text-2xl font-medium text-slate-800 sm:text-3xl">
             累计回报（3 年 3 个月）
+          </p>
+          <p className="mt-2 text-sm text-slate-500">
+            更新至 2026.03.10
           </p>
         </motion.div>
 

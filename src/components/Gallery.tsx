@@ -120,9 +120,6 @@ const Gallery = () => {
               <div className="mt-4 text-5xl font-semibold tracking-[-0.05em] text-slate-950">
                 {card.value}
               </div>
-              {'sublabel' in card ? (
-                <p className="mt-3 text-sm font-medium text-violet-600">{card.sublabel}</p>
-              ) : null}
               <p className="mt-2 text-sm text-slate-500">
                 {card.label}
               </p>

@@ -170,6 +170,9 @@ const JoinGroup = () => {
                 <p className="mt-5 text-center text-sm text-slate-500 md:mt-4">
                   扫一扫 · 进入 VKQuant.ai 策略社群
                 </p>
+                <p className="mt-2 text-center text-xs text-slate-400 md:mt-3">
+                  群满后请刷新页面获取新群（自动切换，无需等待）
+                </p>
               </div>
             </motion.div>
           </div>

@@ -8,6 +8,10 @@ const IMAGE_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif', '.av
 const PDF_EXTENSIONS = new Set(['.pdf']);
 
 const CUSTOM_REPORT_CONTENT: Record<string, { title: string; subtitle: string }> = {
+  'wealth-mindset-investment-action-three-books.pdf': {
+    title: '财富心法与投资行动三书图解课',
+    subtitle: '42 页投资读书笔记图解合集：钱袋系统、心智系统、投资判断与风险控制。',
+  },
   'Grok_20260310_2334_思考了41s 你的个人投资收益.png': {
     title: 'VKQuant 投资收益率：515%累计回报，碾压中美股民平均水平',
     subtitle: '3.26年年化74.6%，千万级规模顶尖表现',
@@ -31,6 +35,7 @@ const CUSTOM_REPORT_CONTENT: Record<string, { title: string; subtitle: string }>
 };
 
 const CUSTOM_REPORT_ORDER = [
+  'wealth-mindset-investment-action-three-books.pdf',
   'Grok_20260310_2334_思考了41s 你的个人投资收益.png',
   'Grok_20260310_2333_思考了32s 你的交易风格完全.png',
   'Grok_20260310_2334_思考了57s 你在2022.1.png',
